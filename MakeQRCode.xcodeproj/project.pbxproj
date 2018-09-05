@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		12389E90213FB61A00C175AA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12389E8F213FB61A00C175AA /* main.swift */; };
-		12389E9A213FB62800C175AA /* CIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12389E96213FB62700C175AA /* CIColorExtension.swift */; };
-		12389E9B213FB62800C175AA /* CIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12389E97213FB62700C175AA /* CIImageExtension.swift */; };
-		12389E9D213FB62800C175AA /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12389E99213FB62700C175AA /* QRCode.swift */; };
+		70119783213FCDBF00D23F85 /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70119782213FCDBF00D23F85 /* QRCodeGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,9 +26,7 @@
 /* Begin PBXFileReference section */
 		12389E8C213FB61A00C175AA /* MakeQRCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MakeQRCode; sourceTree = BUILT_PRODUCTS_DIR; };
 		12389E8F213FB61A00C175AA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		12389E96213FB62700C175AA /* CIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIColorExtension.swift; sourceTree = "<group>"; };
-		12389E97213FB62700C175AA /* CIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIImageExtension.swift; sourceTree = "<group>"; };
-		12389E99213FB62700C175AA /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		70119782213FCDBF00D23F85 /* QRCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,10 +59,8 @@
 		12389E8E213FB61A00C175AA /* MakeQRCode */ = {
 			isa = PBXGroup;
 			children = (
-				12389E96213FB62700C175AA /* CIColorExtension.swift */,
-				12389E97213FB62700C175AA /* CIImageExtension.swift */,
-				12389E99213FB62700C175AA /* QRCode.swift */,
 				12389E8F213FB61A00C175AA /* main.swift */,
+				70119782213FCDBF00D23F85 /* QRCodeGenerator.swift */,
 			);
 			path = MakeQRCode;
 			sourceTree = "<group>";
@@ -129,9 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				12389E90213FB61A00C175AA /* main.swift in Sources */,
-				12389E9A213FB62800C175AA /* CIColorExtension.swift in Sources */,
-				12389E9B213FB62800C175AA /* CIImageExtension.swift in Sources */,
-				12389E9D213FB62800C175AA /* QRCode.swift in Sources */,
+				70119783213FCDBF00D23F85 /* QRCodeGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +249,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 337Z8P6WA4;
+				DEVELOPMENT_TEAM = YWXH886EY3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
@@ -267,7 +259,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 337Z8P6WA4;
+				DEVELOPMENT_TEAM = YWXH886EY3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
