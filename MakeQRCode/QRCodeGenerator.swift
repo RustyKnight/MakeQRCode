@@ -13,20 +13,20 @@ public typealias QRImage = NSImage
 
 //@available(OSX 10.9, *)
 @objc
-public class QRCodeGenerator : NSObject {
+public class QRCodeGenerator: NSObject {
 	
-	public var backgroundColor:QRColor = QRColor.white
-	public var foregroundColor:QRColor = QRColor.black
-	public var correctionLevel:CorrectionLevel = .M
+	public var backgroundColor: QRColor = QRColor.white
+	public var foregroundColor: QRColor = QRColor.black
+	public var correctionLevel: CorrectionLevel = .M
 	
-	public enum CorrectionLevel : String {
+	public enum CorrectionLevel: String {
 		case L = "L"
 		case M = "M"
 		case Q = "Q"
 		case H = "H"
 	}
 	
-	private func outputImageFromFilter(filter:CIFilter) -> CIImage? {
+	private func outputImageFromFilter(filter: CIFilter) -> CIImage? {
 		if #available(OSX 10.10, *) {
 			return filter.outputImage
 		} else {
@@ -34,7 +34,7 @@ public class QRCodeGenerator : NSObject {
 		}
 	}
 	
-	private func imageWithImageFilter(inputImage:CIImage) -> CIImage? {
+	private func imageWithImageFilter(inputImage: CIImage) -> CIImage? {
 		if let colorFilter = CIFilter(name: "CIFalseColor") {
 			colorFilter.setDefaults()
 			colorFilter.setValue(inputImage, forKey: "inputImage")
@@ -45,18 +45,18 @@ public class QRCodeGenerator : NSObject {
 		return nil
 	}
 	
-	public func createImage(value:String, size:CGSize) -> QRImage? {
+	public func createImage(value: String, size: CGSize) -> QRImage? {
 		guard let stringData = value.data(using: String.Encoding.isoLatin1, allowLossyConversion: true) else {
 			return nil
 		}
 		return createImage(data: stringData, size: size)
 	}
 	
-	public func createImage(url:URL, size:CGSize) -> QRImage? {
+	public func createImage(url :URL, size: CGSize) -> QRImage? {
 		return createImage(value: url.absoluteString, size: size)
 	}
 
-	public func createImage(data: Data, size:CGSize) -> QRImage? {
+	public func createImage(data: Data, size: CGSize) -> QRImage? {
 		if let qrFilter = CIFilter(name: "CIQRCodeGenerator") {
 			qrFilter.setDefaults()
 			qrFilter.setValue(data, forKey: "inputMessage")
@@ -71,8 +71,7 @@ public class QRCodeGenerator : NSObject {
 
 	
 	#if os(iOS)
-	private func createNonInterpolatedImageFromCIImage(image:CIImage, size:CGSize) -> QRImage? {
-		
+	private func createNonInterpolatedImageFromCIImage(image: CIImage, size: CGSize) -> QRImage? {
 		#if (arch(i386) || arch(x86_64))
 		let contextOptions = [kCIContextUseSoftwareRenderer : false]
 		#else
@@ -91,9 +90,8 @@ public class QRCodeGenerator : NSObject {
 		UIGraphicsEndImageContext()
 		return newImage!
 	}
-	
 	#elseif os(OSX)
-	private func createNonInterpolatedImageFromCIImage(image:CIImage, size:CGSize) -> QRImage? {
+	private func createNonInterpolatedImageFromCIImage(image: CIImage, size: CGSize) -> QRImage? {
 		guard let cgImage = CIContext().createCGImage(image, from: image.extent) else { return nil }
 		let newImage = QRImage(size: size)
 		newImage.lockFocus()
@@ -115,6 +113,5 @@ public class QRCodeGenerator : NSObject {
 		newImage.unlockFocus()
 		return newImage
 	}
-	#endif
-	
+	#endif	
 }
